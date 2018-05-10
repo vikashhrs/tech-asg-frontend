@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="query-box">
+    <select (change)="onCarSelected($event.target.value)">
+      <option *ngIf="!selectedCar">Select any Car</option>
+      <option *ngFor="let car of cars">{{car}}</option>
+    </select>
+
+    <select *ngIf="isCarNameSelected" modelSelect (change)="onModelSelected($event.target.value)">
+        <option *ngIf="!selectedModel">Select any Model</option>
+        <option *ngFor="let model of models">{{model}}</option>
+    </select>
+  </div>
+
+  <div class="placeholder" *ngIf="carDetails">
+    <h1>Car Name is {{carDetails.carname}}</h1>
+    <img [src]="carDetails.carimageurl" alt="No Image Found"/>
+    <h1>Model of the car is {{carDetails.modelname}}</h1>
+  </div>
+</div>
